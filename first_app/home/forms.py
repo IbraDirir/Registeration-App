@@ -6,6 +6,7 @@ class StudentForm(forms.ModelForm):
         #fields = ['full_name', 'email', 'age']
         exclude = ['last_update']
         model = Student
+
     def clean_age(self):
         age = self.cleaned_data.get('age')
         if age > 120:
@@ -14,14 +15,15 @@ class StudentForm(forms.ModelForm):
         elif age < 10:
             raise forms.ValidationError('you maybe too young for this class')
         return age
+
+
 class FeedbackForm(forms.Form):
     full_name = forms.CharField()
     email = forms.EmailField()
-    message = forms.CharField(widget=froms.Textarea)
-def clean_message(self):
-    message = self.cleaned_data.get('message')
-    if message == 'Dirty':
-        message == 'clean'
+    message = forms.CharField(widget=forms.Textarea)
 
-    print(message)
-    return message
+    def clean_message(self):
+        message = self.cleaned_data.get('message')
+        if message == 'Dirty':
+            message == 'Clean'
+        return message

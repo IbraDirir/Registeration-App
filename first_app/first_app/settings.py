@@ -27,6 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_HOST = 'smtp.mandrillapp.com'
+EMAIL_HOST_USER = 'khaliildirir@gmail.com'
+EMAIL_HOST_PASSWORD = 'GC145CGf5EW58nsBV9HYcg'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+from django.core.mail import send_mail
+send_mail('Subject here', 'Here is the message.', 'from@example.com',
+    ['to@example.com'], fail_silently=False)
 
 # Application definition
 
