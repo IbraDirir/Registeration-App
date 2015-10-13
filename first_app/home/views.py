@@ -34,8 +34,7 @@ def feedback(request):
     form = FeedbackForm(request.POST or None)
     if form.is_valid():
         from_email = form.cleaned_data.get('email')
-        full_name  =  form.cleaned_data.get('eamail')
-        full_name = form.cleaned_data.get('full_name')
+        full_name  =  form.cleaned_data.get('full_name')
         message = form.cleaned_data.get('full_name')
         prepared_message = "You have feedback from {} saying'{}'".format(full_name,message)
         send_mail('New feeback given', 'prepared_message.', 'from_email',
@@ -48,6 +47,7 @@ def feedback(request):
     return render(request, 'feedback.html', context)
 
 def students(request):
-    students = Student.objects.all()
+    search_term = request.GET['search']
+    students = Student.objects.all().order_by('-last_update').filter(full_name__contains=search_term)
     context = {'students':students}
     return render(request, 'students.html', context)
