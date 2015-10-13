@@ -48,5 +48,6 @@ def feedback(request):
     return render(request, 'feedback.html', context)
 
 def students(request):
-    context = {}
+    students = Student.objects.all()
+    context = {'students':students}
     return render(request, 'students.html', context)
