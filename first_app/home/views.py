@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import StudentForm
 from .forms import FeedbackForm
 from django.core.mail import send_mail
+from .models import Student
 # Create your views here.
 
 
