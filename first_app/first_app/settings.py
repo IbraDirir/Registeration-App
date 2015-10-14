@@ -118,5 +118,3 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "assets", "static_prod")
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(BASE_DIR), "assets", "static"),
     )
-ACCOUNT_ACTIVATION_DAYS = 7
-REGISTRATION_AUTO_LOGIN = True
