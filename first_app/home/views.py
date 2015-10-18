@@ -7,6 +7,10 @@ from .models import Student
 
 
 def index(request):
+    context = {}
+    return render(request, 'bootstrap_index.html', context)
+
+def register(request):
     form = StudentForm(request.POST or None)
 
     context = {
@@ -26,6 +30,7 @@ def index(request):
             "hello_message": "Student Saved"
         }
     return render(request, 'index.html', context)
+
 
 
 
