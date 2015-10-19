@@ -1,4 +1,4 @@
-{% extends bootstrap_index.html %}
+{% extends "base.html"  %}
 {% block content %}
  <div class="jumbotron">
         <h1>Jumbotron heading</h1>
@@ -29,4 +29,7 @@
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
       </div>
+    {% endblock %}
+{%block  home_active%}
+class = "active"
 {% endblock %}
